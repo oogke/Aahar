@@ -1,8 +1,7 @@
-const mongoose = require('mongoose');
-
-const ProductSchema = new mongoose.Schema(
-  {
-    name: {
+const mongoose=require('mongoose');
+const CartSchema = mongoose.Schema(
+    {
+      name: {
       type: String,
       required: [true, "Please enter the product name"],
     },
@@ -18,14 +17,19 @@ const ProductSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please enter the product unit price"],
     },
+       amount: {
+      type: Number,
+      required: [true],
+    },
     expiringDate: {
       type: Date,
       required: [true, "Please enter the product Expiring Date"],
-    },
+    }
+        
   },
   {
     timestamps: true,
   }
 );
-const Product = mongoose.model("Product", ProductSchema);
-module.exports = Product;
+const cart = mongoose.model("Product", ProductSchema);
+module.exports = product;
