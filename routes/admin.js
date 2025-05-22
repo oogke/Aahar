@@ -13,4 +13,8 @@ router.get('/contactDetail', function(req, res, next) {
   res.render('admin/contactDetails.ejs');
 });
 
+router.get('/addProduct', function(req, res, next) {
+  res.render('admin/addProduct.ejs');
+});
+
 module.exports = router;
