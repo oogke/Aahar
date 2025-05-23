@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cart Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    .cart-section {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .cart-item {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      display: flex;
+      gap: 20px;
+      align-items: center;
+    }
+    .cart-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+    }
+    .details {
+      flex-grow: 1;
+    }
+    .checkout {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    input[type='number'] {
+      width: 50px;
+    }
+    #empty-msg {
+      font-style: italic;
+      color: gray;
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1.2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cart-section">
+    <h2>🛒 Cart</h2>
+    <div id="cart"></div>
+    <h3 id="cart-total"></h3>
+    <button class="checkout" id="checkout-btn" onclick="checkout()">Proceed to Checkout</button>
+    <div id="empty-msg" style="display:none;">Oops! Your cart’s all alone — bring in some freshtreats!</div>
+  </div>
+
+  <script>
+    // Sample data; replace with [] to test empty cart
+    const cartData = [
+      {
+        name: "Organic Honey",
+        desc: "Pure natural organic honey from mountain hives.",
+        img: "https://via.placeholder.com/100",
+        price: 250,
+        qty: 1,
+        bestBefore: "2025-12-31",
+        location: "Available at nearby stores",
+        farmer: "Mr. Ramesh Gurung, Lamjung Honey Co-op"
+      },
+      {
+        name: "Herbal Soap",
+        desc: "Gentle handmade herbal soap for daily skin care.",
+        img: "https://via.placeholder.com/100",
+        price: 120,
+        qty: 2,
+        bestBefore: "2026-01-15",
+        location: "Available in Pokhara",
+        farmer: "Ms. Sita Thapa, Green Earth Herbal Farm"
+      }
+    ];
+
+    function updateCart() {
+      const cart = document.getElementById('cart');
+      const cartTotal = document.getElementById('cart-total');
+      const checkoutBtn = document.getElementById('checkout-btn');
+      const emptyMsg = document.getElementById('empty-msg');
+
+      if(cartData.length === 0){
+        cart.style.display = 'none';
+        cartTotal.style.display = 'none';
+        checkoutBtn.style.display = 'none';
+        emptyMsg.style.display = 'block';
+        return;
+      } else {
+        cart.style.display = 'block';
+        cartTotal.style.display = 'block';
+        checkoutBtn.style.display = 'inline-block';
+        emptyMsg.style.display = 'none';
+      }
+
+      cart.innerHTML = '';
+      let totalAmount = 0;
+
+      cartData.forEach((item, index) => {
+        const itemTotal = item.price * item.qty;
+        totalAmount += itemTotal;
+
+        const div = document.createElement('div');
+        div.classList.add('cart-item');
+        div.innerHTML = `
+          <img src="${item.img}" class="cart-img" alt="Product Image">
+          <div class="details">
+            <h3>${item.name}</h3>
+            <p>${item.desc}</p>
+            <p><strong>Price:</strong> Rs. ${item.price}</p>
+            <p><strong>Best Before:</strong> ${item.bestBefore}</p>
+            <p><strong>Availability:</strong> ${item.location}</p>
+            <p><strong>Farmer:</strong> ${item.farmer}</p>
+            <p>
+              <strong>Quantity:</strong> 
+              <input type="number" value="${item.qty}" min="1" onchange="changeQty(${index}, this.value)">
+            </p>
+            <p><strong>Total Price:</strong> Rs. ${itemTotal}</p>
+          </div>
+        `;
+        cart.appendChild(div);
+      });
+
+      cartTotal.innerText = `Grand Total: Rs. ${totalAmount}`;
+    }
+
+    function changeQty(index, newQty) {
+      cartData[index].qty = parseInt(newQty);
+      updateCart();
+    }
+
+    function checkout() {
+      let totalAmount = cartData.reduce((sum, item) => sum + item.price * item.qty, 0);
+      alert(`Total amount to pay: Rs. ${totalAmount}\nProceeding to payment...`);
+    }
+
+    window.onload = updateCart;
+  </script>
+
+</body>
+</html>

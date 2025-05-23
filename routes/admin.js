@@ -1,9 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('admin/admin.ejs', { title: 'Express' });
+/* GET cart page */
+router.get('/', (req, res) => {
+  const cart = []; // or sample items for testing
+  res.render('cart', { cart });
 });
 
 module.exports = router;
