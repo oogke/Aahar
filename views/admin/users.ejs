@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet" />
+<title>Contacts</title>
+<style>
+  :root {
+    --light-bg: #DAD7CD;
+    --sage: #A3B18A;
+    --olive: #588157;
+    --forest: #3A5A40;
+    --moss: #344E41;
+  }
+  * {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0;
+    font-family: 'Baloo 2', cursive, sans-serif;
+  }
+  body {
+    background-color: var(--olive);
+  }
+  #heading {
+    color: var(--light-bg);
+    font-size: 4rem;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 30px;
+  }
+  .contactRow {
+    background-color: white;
+    border-radius: 20px;
+    width: 80%;
+    margin: 15px auto;
+    height: 80px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    padding: 0 30px;
+    font-size: 1.3rem;
+    color: var(--forest);
+    justify-content: space-between;
+    transition: transform 0.2s, box-shadow 0.2s;
+    
+  }
+  .contactRow:hover {
+    transform: scale(1.01);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+  }
+      .back-btn {
+      display: flex;
+      justify-content: flex-start;
+      margin: 50px 0 20px 30px;
+    }
+    #goBackBtn {
+      background-color: var(--sage);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #goBackBtn:hover {
+      background-color: var(--olive);
+    }
+</style>
+</head>
+<body>
+      <div class="wrapper">
+    <div class="back-btn">
+      <button id="goBackBtn" onclick="history.back()"><i class="bi bi-arrow-left"></i> Back</button>
+    </div>
+
+
+<h1 id="heading">USERS</h1>
+<% users.forEach(function(user, index){ %>
+  <div class="contactRow">
+    <div><%= index + 1 %></div>
+    <div><%= user.name %></div>
+    <div><%= user.email %></div>
+    <div><%= user.phoneNo %></div>
+    <div><%= user.address %></div>
+  </div>
+<% }) %>
+
+</body>
+</html>
