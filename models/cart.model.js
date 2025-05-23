@@ -1,7 +1,13 @@
-const mongoose=require('mongoose');
+const mongoose = require('mongoose');
+
 const CartSchema = mongoose.Schema(
-    {
-      name: {
+  {
+    productId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Product",
+      required: true,
+    },
+    name: {
       type: String,
       required: [true, "Please enter the product name"],
     },
@@ -11,25 +17,31 @@ const CartSchema = mongoose.Schema(
     },
     unit: {
       type: String,
-      required: [true, "Please enter the product unit"],
+      enum: ['kg', 'pcs', 'liter', 'dozen', 'pack'],
+      required: [true, "Please enter the unit"],
     },
     unitPrice: {
       type: Number,
-      required: [true, "Please enter the product unit price"],
+      required: [true, "Please enter the price per unit"],
     },
-       amount: {
+    quantity: {
       type: Number,
-      required: [true],
+      required: [true, "Please enter quantity"],
+      min: [1, "Quantity must be at least 1"],
     },
-    expiringDate: {
+    amount: {
+      type: Number,
+      required: [true, "Please calculate and put total amount (price * quantity)"],
+    },
+    bestBefore: {
       type: Date,
-      required: [true, "Please enter the product Expiring Date"],
+      required: [true, "Please enter the best before date"],
     }
-        
   },
   {
     timestamps: true,
   }
 );
-const cart = mongoose.model("Product", ProductSchema);
-module.exports = product;
+
+const Cart = mongoose.model("Cart", CartSchema);
+module.exports = Cart;

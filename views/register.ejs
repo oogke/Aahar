@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <title>Title</title>
+    <style>
+        /* styles.css */
+
+:root {
+  --light-bg: #DAD7CD;
+  --sage: #A3B18A;
+  --olive: #588157;
+  --forest: #3A5A40;
+  --moss: #344E41;
+}
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: var(--light-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+}
+
+h2 {
+  color: var(--forest);
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  margin-bottom: 0.25rem;
+  font-weight: 600;
+  color: var(--moss);
+}
+
+input {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--sage);
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+button {
+  background-color: var(--olive);
+  color: white;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: var(--forest);
+}
+
+    </style>
+</head>
+<body>
+     <div class="container">
+    <h2>User Registration</h2>
+    <form action="/users/registerSave" method="POST">
+      <label for="name">Full Name</label>
+      <input type="text" id="name" name="name" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="password">Password</label>
+      <input type="password" id="password" name="password" required />
+
+      <label for="phoneNo">Phone Number</label>
+      <input type="number" id="phoneNo" name="phoneNo" required />
+
+      <label for="address">Address</label>
+      <input type="text" id="address" name="address" required />
+
+      <label for="citizenshipCardNo">Citizenship Card Number</label>
+      <input type="number" id="citizenshipCardNo" name="citizenshipCardNo" required />
+
+      <label for="role" hidden>Role</label>
+      <input type="text" id="role" name="role" required hidden value="user"/>
+
+      <button type="submit">Register</button>
+    </form>
+    
+<div id="loginSwitch" class="text-center mt-3">
+  <p>Already have an account?</p>
+  <a href="/users/login" class="btn btn-outline-success">Go to Login</a>
+</div>
+  </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+</body>
+</html>

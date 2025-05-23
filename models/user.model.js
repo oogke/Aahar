@@ -10,6 +10,11 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter the email"],
     },
+    password: {
+  type: String,
+  required: [true, "Password is required"]
+},
+
     phoneNo: {
       type: Number,
       required: [true, "Please enter the phone number"],
@@ -22,6 +27,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please enter the citizenship card number"],
     },
+    role:{
+      type:String,
+      required: [true, "Please enter the role"],
+    }
   },
   {
     timestamps: true,

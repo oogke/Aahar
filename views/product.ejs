@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>All Products</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background: #F4F9FF;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      width: 280px;
+      padding: 15px;
+      text-align: center;
+      transition: transform 0.2s;
+    }
+
+    .product-card:hover {
+      transform: scale(1.03);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+
+    .product-card h2 {
+      font-size: 20px;
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      margin: 5px 0;
+      font-size: 14px;
+      color: #333;
+    }
+
+    .price {
+      font-weight: bold;
+      color: green;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>All Products</h1>
+
+  <div class="product-grid">
+    <div class="product-card">
+      <img src="https://via.placeholder.com/280x180.png?text=Apples" alt="Apples">
+      <h2>Fresh Apples</h2>
+      <p>Juicy and sweet red apples from Mustang.</p>
+      <p><strong>By:</strong> Farmer Ram</p>
+      <p><strong>Category:</strong> Fruits</p>
+      <p class="price">Rs. 120 /kg</p>
+      <p><strong>Stock:</strong> 40 kg</p>
+      <p><strong>Best Before:</strong> 2025-06-10</p>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/280x180.png?text=Tomatoes" alt="Tomatoes">
+      <h2>Organic Tomatoes</h2>
+      <p>Locally grown tomatoes with zero chemicals.</p>
+      <p><strong>By:</strong> Farmer Sita</p>
+      <p><strong>Category:</strong> Vegetables</p>
+      <p class="price">Rs. 80 /kg</p>
+      <p><strong>Stock:</strong> 60 kg</p>
+      <p><strong>Best Before:</strong> 2025-06-15</p>
+    </div>
+
+    <div class="product-card">
+      <img src="https://via.placeholder.com/280x180.png?text=Beans" alt="Beans">
+      <h2>Green Beans</h2>
+      <p>Fresh green beans harvested this morning.</p>
+      <p><strong>By:</strong> Farmer Hari</p>
+      <p><strong>Category:</strong> Vegetables</p>
+      <p class="price">Rs. 70 /kg</p>
+      <p><strong>Stock:</strong> 50 kg</p>
+      <p><strong>Best Before:</strong> 2025-06-20</p>
+    </div>
+  </div>
+
+</body>
+</html>
