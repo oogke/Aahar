@@ -22,6 +22,10 @@ const userSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Please enter the citizenship card number"],
     },
+    role:{
+      type:String,
+      required: [true, "Please enter the role"],
+    }
   },
   {
     timestamps: true,

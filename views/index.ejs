@@ -5,9 +5,116 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
   <title>Title</title>
+  <style>
+     :root {
+      --light-bg: #DAD7CD;
+      --sage: #A3B18A;
+      --olive: #588157;
+      --forest: #3A5A40;
+      --moss: #344E41;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--light-bg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+    }
+
+    .btn {
+      padding: 0.75rem 1.5rem;
+      background-color: var(--olive);
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 500px;
+      width: 100%;
+      position: relative;
+    }
+
+    .modal-content h2 {
+      margin-bottom: 1rem;
+      color: var(--forest);
+    }
+
+    .modal-content label {
+      display: block;
+      margin: 0.5rem 0 0.25rem;
+      color: var(--moss);
+      font-weight: 600;
+    }
+
+    .modal-content input,
+    .modal-content textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border: 1px solid var(--sage);
+      border-radius: 6px;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .quantity-control {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .quantity-control button {
+      padding: 0.25rem 0.75rem;
+      font-size: 1.2rem;
+      background-color: var(--sage);
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      color: white;
+    }
+
+    .close {
+      position: absolute;
+      top: 0.75rem;
+      right: 1rem;
+      font-size: 1.5rem;
+      cursor: pointer;
+      color: var(--moss);
+    }
+
+    .mainBody
+    {
+      width: 100%;
+      height: 100vh;
+      border: 1px solid black;
+    }
+    header{
+      width: 100%;
+
+    }
+  </style>
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-primary ">
+  <header>
+<nav class="navbar navbar-expand-lg navbar-light bg-primary ">
     <div class="container-fluid">
       <a class="navbar-brand text-light" href="#">Aahar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,7 +134,85 @@
       </div>
     </div>
   </nav>
+  </header>
+  
+  <section class="mainBody">
+<button class="btn" onclick="openModal()">Add to cart</button>
 
+  <div class="modal" id="productModal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal()">×</span>
+      <h2>Add New Product</h2>
+      <form>
+        <label for="name">Product Name</label>
+        <input type="text" id="name" required />
+
+        <label for="desc">Description</label>
+        <textarea id="desc" rows="3" required></textarea>
+
+        <label for="expiry">Expiry Date</label>
+        <input type="date" id="expiry" required />
+
+        <label for="price">Unit Price</label>
+        <input type="number" id="price" required value="30"/>
+
+        <label for="quantity">Quantity</label>
+        <div class="quantity-control">
+          <button type="button" onclick="changeQty(-1)">−</button>
+          <input type="number" id="quantity" value="1" min="0.01" required />
+          <button type="button" onclick="changeQty(1)">+</button>
+        </div>
+     <label for="total">Total Amount</label>
+<input type="text" id="total" readonly />
+
+
+        <br />
+        <button class="btn" type="submit">Save Product</button>
+      </form>
+    </div>
+  </div>
+  </section>
+  
+
+  <script>
+    const modal = document.getElementById('productModal');
+
+    function openModal() {
+      modal.style.display = 'flex';
+    }
+
+    function closeModal() {
+      modal.style.display = 'none';
+    }
+
+     function changeQty(amount) {
+    const input = document.getElementById('quantity');
+    let current = parseInt(input.value);
+    if (isNaN(current)) current = 1;
+    const newValue = current + amount;
+    input.value = newValue > 0 ? newValue : 1;
+    updateAmount();
+  }
+
+      function updateAmount() {
+    const quantity = parseFloat(document.getElementById('quantity').value);
+const unitPrice = parseFloat(document.getElementById('price').value);
+    const total = quantity * unitPrice;
+    document.getElementById('total').value = isNaN(total) ? '' : total.toFixed(2);
+  }
+    document.getElementById('quantity').addEventListener('input', updateAmount);
+    window.onclick = function (e) {
+      if (e.target === modal) {
+        closeModal();
+      }
+    };
+
+const quantity = document.getElementById('quantity').value;
+const unitPrice= document.getElementById('UnitPrice').value;
+const amount= quantity*unitPrice;
+
+
+  </script>
 
 
 

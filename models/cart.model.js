@@ -19,7 +19,7 @@ const CartSchema = mongoose.Schema(
     },
        amount: {
       type: Number,
-      required: [true],
+      required: [true,"Please calculate and put amount"],
     },
     expiringDate: {
       type: Date,
@@ -31,5 +31,5 @@ const CartSchema = mongoose.Schema(
     timestamps: true,
   }
 );
-const cart = mongoose.model("Product", ProductSchema);
-module.exports = product;
+const cart = mongoose.model("Cart", CartSchema);
+module.exports = cart;
