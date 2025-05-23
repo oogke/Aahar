@@ -17,4 +17,8 @@ router.get('/addProduct', function(req, res, next) {
   res.render('admin/addProduct.ejs');
 });
 
+router.get('/users', function(req, res, next) {
+  res.render('admin/users.ejs');
+});
+
 module.exports = router;

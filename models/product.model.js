@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-
-const ProductSchema = new mongoose.Schema(
+const ProductSchema = mongoose.Schema(
   {
     name: {
       type: String,
@@ -10,18 +9,32 @@ const ProductSchema = new mongoose.Schema(
       type: String,
       required: [true, "Please enter the product description"],
     },
-    unit: {
-      type: String,
-      required: [true, "Please enter the product unit"],
-    },
-    unitPrice: {
+    pricePerKg: {
       type: Number,
-      required: [true, "Please enter the product unit price"],
+      required: [true, "Please enter the price per kg"],
     },
-    expiringDate: {
+    quantityAvailable: {
+      type: Number,
+      required: [true, "Please specify the available quantity (in kgs)"],
+      min: [0, "Quantity cannot be negative"],
+    },
+    bestBefore: {
       type: Date,
-      required: [true, "Please enter the product Expiring Date"],
+      required: [true, "Please enter the best before date"],
     },
+    createdBy: {
+      type: String,
+      required: [true, "Please enter the seller or farmer name"],
+    },
+    imageUrl: {
+      type: String,
+      default: '/images/default.jpg',
+    },
+    category: {
+      type: String,
+      enum: ['Dairy', 'Fruits', 'Vegetables', 'Grains', 'Meat', 'Other'],
+      required: [true, "Please specify the category"],
+    }
   },
   {
     timestamps: true,
