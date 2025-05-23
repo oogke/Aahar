@@ -11,16 +11,18 @@ const bcrypt= require('bcryptjs');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var adminRouter=require('./routes/admin');
+var searchRouter=require('./routes/search');
+const Product = require('./models/productschema');
+const productsRouter = require('./routes/product');
 
+
+
+
+mongoose.connect('mongodb+srv://three:easy@cluster0.alz4tam.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+  .then(() => console.log('Connected'))
+  .catch((err) => console.error('Error:', err));
 var app = express();
 //Database Connection
-mongoose.connect('mongodb://127.0.0.1:27017/aahar').then(()=>
-{
-  console.log("connection successful")
-}).catch((err)=>
-{
-  console.log("Errror when connecting");
-})
 
 
 
@@ -34,9 +36,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+
+
+
+app.use('/index', indexRouter);
 app.use('/users', usersRouter);
 app.use('/admin',adminRouter);
+app.use('/product',productsRouter);
+app.use('/search',searchRouter);
 
 
 // catch 404 and forward to error handler
