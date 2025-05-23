@@ -44,4 +44,4 @@ const CartSchema = mongoose.Schema(
 );
 
 const Cart = mongoose.model("Cart", CartSchema);
-module.exports = Cart;
+module.exports = users;

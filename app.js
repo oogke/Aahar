@@ -23,13 +23,6 @@ mongoose.connect('mongodb+srv://three:easy@cluster0.alz4tam.mongodb.net/?retryWr
   .catch((err) => console.error('Error:', err));
 var app = express();
 //Database Connection
-mongoose.connect('mongodb://127.0.0.1:27017/aahar').then(()=>
-{
-  console.log("connection successful")
-}).catch((err)=>
-{
-  console.log("Errror when connecting");
-})
 
 
 
