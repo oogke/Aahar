@@ -135,7 +135,7 @@
 </head>
 <body>
 
-  <!-- Full Width Navbar -->
+ 
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid justify-content-end">
       <ul class="navbar-nav">
@@ -152,56 +152,29 @@
 
   <div class="product-grid">
 
-    <!-- Product 1 -->
+<%productList.forEach(function(product){%>
     <div class="product-card">
       <div class="product-content">
-        <div class="product-title">Fresh Apples</div>
-        <div class="product-desc">Juicy and sweet red apples from Mustang.</div>
-        <div class="info-row"><strong>By:</strong> Farmer Ram</div>
-        <div class="info-row"><strong>Category:</strong> Fruits</div>
-        <div class="price">Rs. 120 /kg</div>
-        <div class="info-row"><strong>Stock:</strong> 40 kg</div>
-        <div class="info-row"><strong>Best Before:</strong> 2025-06-10</div>
+       <div class="product-title"><%= product.name %></div>
+<div class="product-desc"><%= product.description %></div>
+<div class="info-row"><strong>By:</strong> <%= product.createdBy %></div>
+<div class="info-row"><strong>Category:</strong> <%= product.category %></div>
+<div class="price">Rs. <%= product.pricePerKg %> /kg</div>
+<div class="info-row"><strong>Stock:</strong> <%= product.quantityAvailable %> kg</div>
+<div class="info-row">
+  <strong>Best Before:</strong>
+  <%= product.bestBefore ? product.bestBefore.toISOString().split('T')[0] : 'N/A' %>
+</div>
         <div class="button-group">
           <button class="btn btn-edit">Edit</button>
           <button class="btn btn-remove">Remove</button>
         </div>
       </div>
     </div>
+ <%})%>
+   
 
-    <!-- Product 2 -->
-    <div class="product-card">
-      <div class="product-content">
-        <div class="product-title">Organic Tomatoes</div>
-        <div class="product-desc">Locally grown tomatoes with zero chemicals.</div>
-        <div class="info-row"><strong>By:</strong> Farmer Sita</div>
-        <div class="info-row"><strong>Category:</strong> Vegetables</div>
-        <div class="price">Rs. 80 /kg</div>
-        <div class="info-row"><strong>Stock:</strong> 60 kg</div>
-        <div class="info-row"><strong>Best Before:</strong> 2025-06-15</div>
-        <div class="button-group">
-          <button class="btn btn-edit">Edit</button>
-          <button class="btn btn-remove">Remove</button>
-        </div>
-      </div>
-    </div>
-
-    <!-- Product 3 -->
-    <div class="product-card">
-      <div class="product-content">
-        <div class="product-title">Green Beans</div>
-        <div class="product-desc">Fresh green beans harvested this morning.</div>
-        <div class="info-row"><strong>By:</strong> Farmer Hari</div>
-        <div class="info-row"><strong>Category:</strong> Vegetables</div>
-        <div class="price">Rs. 70 /kg</div>
-        <div class="info-row"><strong>Stock:</strong> 50 kg</div>
-        <div class="info-row"><strong>Best Before:</strong> 2025-06-20</div>
-        <div class="button-group">
-          <button class="btn btn-edit">Edit</button>
-          <button class="btn btn-remove">Remove</button>
-        </div>
-      </div>
-    </div>
+   
 
   </div>
 

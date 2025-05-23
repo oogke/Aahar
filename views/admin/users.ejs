@@ -77,23 +77,15 @@
 
 
 <h1 id="heading">USERS</h1>
-<div class="contactRow">
-  <div>1</div>
-  <div>Mamata Shrestha</div>
-  <div>mamata@example.com</div>
-  <div>+977-9800000000</div>
-</div>
-<div class="contactRow">
-  <div>2</div>
-  <div>Suresh Koirala</div>
-  <div>suresh@example.com</div>
-  <div>+977-9811111111</div>
-</div>
-<div class="contactRow">
-  <div>3</div>
-  <div>Anjali Thapa</div>
-  <div>anjali@example.com</div>
-  <div>+977-9822222222</div>
-</div>
+<% users.forEach(function(user, index){ %>
+  <div class="contactRow">
+    <div><%= index + 1 %></div>
+    <div><%= user.name %></div>
+    <div><%= user.email %></div>
+    <div><%= user.phoneNo %></div>
+    <div><%= user.address %></div>
+  </div>
+<% }) %>
+
 </body>
 </html>

@@ -30,5 +30,5 @@ const ContactDSchema = new mongoose.Schema({
   timestamps: true
 });
 
-const ContactD = mongoose.model("ContactD", ContactDSchema);
-module.exports = ContactD;
+const Contact = mongoose.model("Contact", ContactDSchema);
+module.exports = Contact;

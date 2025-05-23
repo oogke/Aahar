@@ -108,33 +108,18 @@
 
   <h1>User Details</h1>
 
-  <div class="userGrid">
+  <div class="userGrid"> 
+     
+    <%contacts.forEach(function(contact,index){%>
     <div class="userCard">
-      <h2>Jane Doe</h2>
-      <p><span>Email:</span> jane@example.com</p>
-      <p><span>Phone:</span> +977 9800000000</p>
-      <p><span>Address:</span> Kathmandu, Nepal</p>
-      <p><span>Citizenship No:</span> 123456789</p>
-      <p><span>Role:</span> Admin</p>
+      <h2> <%= contact.name %></h2>
+      <p><span>Email:</span> <%= contact.email %></p>
+      <p><span>Phone:</span>  <%= contact.phoneNo %></p>
+      <p><span>Address:</span>  <%= contact.address %></p>
     </div>
+     <%
+    }) %>
 
-    <div class="userCard">
-      <h2>John Smith</h2>
-      <p><span>Email:</span> john@example.com</p>
-      <p><span>Phone:</span> +977 9811111111</p>
-      <p><span>Address:</span> Pokhara, Nepal</p>
-      <p><span>Citizenship No:</span> 987654321</p>
-      <p><span>Role:</span> Editor</p>
-    </div>
-
-    <div class="userCard">
-      <h2>Rina Sharma</h2>
-      <p><span>Email:</span> rina@example.com</p>
-      <p><span>Phone:</span> +977 9822222222</p>
-      <p><span>Address:</span> Lalitpur, Nepal</p>
-      <p><span>Citizenship No:</span> 456123789</p>
-      <p><span>Role:</span> User</p>
-    </div>
   </div>
   </div>
 </body>
