@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+     <title>Aahara</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --light-bg: #DAD7CD;
+      --sage: #A3B18A;
+      --olive: #588157;
+      --forest: #3A5A40;
+      --moss: #344E41;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: var(--forest);
+    }
+
+    .navbar-brand, .nav-link, .btn-light {
+      color: white !important;
+    }
+
+    .btn-light {
+      background-color: var(--sage);
+      border: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn-light:hover {
+      background-color: var(--olive);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      background: url('/image/hero.jpg') no-repeat center center/cover;
+      height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--olive);
+      text-align: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+      z-index: 0;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 600px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 2rem 3rem;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+
+    .hero-content h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: var(--olive);
+    }
+
+    .hero-content p {
+      font-size: 1.3rem;
+      color: var(--moss);
+    }
+
+    /* Products Section */
+.products-section {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* Product Grid - responsive grid layout */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.8rem;
+  padding: 0 1rem;
+}
+
+/* Product Card */
+.product-card {
+  border-radius: 1rem;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  padding: 1rem 1.2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  cursor: pointer;
+}
+
+.product-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+/* Smaller images with rounded corners */
+.product-card img {
+  max-width: 100%;
+  border-radius: 1rem;
+  margin-bottom: 0.8rem;
+  object-fit: cover;
+  height: 140px;
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+
+/* Product Title */
+.product-card h5, .product-card h2 {
+  color: var(--olive);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+/* Product Details text */
+.product-card p {
+  color: var(--moss);
+  margin-bottom: 0.3rem;
+  font-size: 0.85rem;
+  line-height: 1.3;
+}
+
+/* Price styling */
+.product-card .price {
+  font-weight: 700;
+  color: #2e7d32; /* a rich green */
+  font-size: 1rem;
+  margin-top: auto;
+}
+h1 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 3.5rem;
+  color: #3A5A40; /* nice forest green */
+  margin: 3rem 0 2rem;
+  letter-spacing: 0.05em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+
+/* Category badge */
+.category-tag .badge {
+  font-size: 0.7rem;
+  padding: 0.3em 0.7em;
+  border-radius: 50rem; /* pill-shaped */
+  background-color: #28a745; /* customize per category if needed */
+  color: #fff;
+  display: inline-block;
+  margin-top: 0.5rem;
+  user-select: none;
+}
+
+  </style>
+</head>
+<body>
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/">Aahar</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/product">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/use">Zero Waste</a></li>
+        </ul>
+
+        <form class="d-flex me-3" role="search" action="/search" method="GET">
+  <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" aria-label="Search" />
+  <button class="btn btn-light" type="submit">Search</button>
+</form>
+
+
+        <button class="btn btn-light btn-lg rounded-circle" aria-label="Cart" title="Cart">
+          <i class="bi bi-cart-fill"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  
+
+  <h1> Product You Searched</h1>
+  <div class="container product-grid">
+
+
+  </div>
+    hello mahima
+    <%= keyword %>
+</body>
+</html>
+
+
+//covering topics like aahar the word that translates to what and also mentioning about
