@@ -8,7 +8,7 @@ const ProductSchema = mongoose.Schema(
     },
     description: {
       type: String,
-      required: [true, "Please enter the product description"],
+      required: [true, "Please enter the product description"], 
     },
     pricePerKg: {
       type: Number,
