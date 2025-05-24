@@ -18,7 +18,10 @@ const productsRouter = require('./routes/product');
 
 
 
-mongoose.connect('mongodb+srv://three:easy@cluster0.alz4tam.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+// mongoose.connect('mongodb+srv://three:easy@cluster0.alz4tam.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0')
+// mongoose.connect('mongodb://127.0.0.1:27017/')
+// mongoose.connect('mongodb+srv://archanatimilsina88:<hello>@cluster0.u37adnf.mongodb.net/')
+mongoose.connect('mongodb+srv://archanatimilsina88:0RL1Tfg3uwGvxotx@cluster0.u37adnf.mongodb.net/myDatabase?retryWrites=true&w=majority')
   .then(() => console.log('Connected'))
   .catch((err) => console.error('Error:', err));
 var app = express();

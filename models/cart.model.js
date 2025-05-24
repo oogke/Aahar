@@ -17,7 +17,6 @@ const CartSchema = mongoose.Schema(
     },
     unit: {
       type: String,
-      enum: ['kg', 'pcs', 'liter', 'dozen', 'pack'],
       required: [true, "Please enter the unit"],
     },
     unitPrice: {
@@ -44,4 +43,4 @@ const CartSchema = mongoose.Schema(
 );
 
 const Cart = mongoose.model("Cart", CartSchema);
-module.exports = users;
+module.exports = Cart;

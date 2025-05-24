@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Aahara</title>
+  <title>Aahar</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
 
@@ -82,83 +82,81 @@
       color: var(--moss);
     }
 
-    /* Products Section */
+   
 .products-section {
   padding: 4rem 2rem;
   max-width: 1200px;
   margin: auto;
 }
-
-/* Product Grid - responsive grid layout */
 .product-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+grid-template-columns: repeat(4, 1fr);
   gap: 1.8rem;
   padding: 0 1rem;
 }
-
-/* Product Card */
 .product-card {
   border-radius: 1rem;
-  background: white;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  padding: 1rem 1.2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(145deg, #ffffff, #f0f0f0); 
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); 
+  padding: 1.5rem 1.8rem;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: space-between;
   cursor: pointer;
+ 
 }
+
 
 .product-card:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
 }
 
-/* Smaller images with rounded corners */
 .product-card img {
-  max-width: 100%;
   border-radius: 1rem;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
+  height: 160px;
   object-fit: cover;
-  height: 140px;
-  transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.4s ease;
 }
 
 .product-card:hover img {
-  transform: scale(1.05);
+  transform: scale(1.07);
 }
 
-/* Product Title */
 .product-card h5, .product-card h2 {
-  color: var(--olive);
+  /* color: #c7d1b8; lighter olive */
   font-weight: 700;
-  margin-bottom: 0.4rem;
-  font-size: 1.1rem;
-  line-height: 1.2;
-}
-
-/* Product Details text */
-.product-card p {
-  color: var(--moss);
-  margin-bottom: 0.3rem;
-  font-size: 0.85rem;
+  margin-bottom: 0.6rem;
+  font-size: 1.2rem;
   line-height: 1.3;
+  /* text-shadow: 0 1px 1px rgba(0,0,0,0.2); */
 }
 
-/* Price styling */
+.product-card p {
+  /* color: #d4d9c9; subtle sage */
+  margin-bottom: 0.4rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  text-shadow: 0 1px 0 rgba(0,0,0,0.1);
+}
+
 .product-card .price {
   font-weight: 700;
-  color: #2e7d32; /* a rich green */
-  font-size: 1rem;
+  /* color: #a1c27d; olive green accent */
+  font-size: 1.1rem;
   margin-top: auto;
+  letter-spacing: 0.03em;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.25);
 }
 h1 {
   text-align: center;
   font-weight: 700;
   font-size: 3.5rem;
-  color: #3A5A40; /* nice forest green */
+  /* color: #3A5A40; nice forest green */
   margin: 3rem 0 2rem;
   letter-spacing: 0.05em;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -170,8 +168,8 @@ h1 {
 .category-tag .badge {
   font-size: 0.7rem;
   padding: 0.3em 0.7em;
-  border-radius: 50rem; /* pill-shaped */
-  background-color: #28a745; /* customize per category if needed */
+  border-radius: 50rem; 
+  background-color: #28a745; 
   color: #fff;
   display: inline-block;
   margin-top: 0.5rem;
@@ -182,10 +180,11 @@ h1 {
 </head>
 <body>
 
+
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="/index">Aahar</a>
+<a class="navbar-brand" href="/">Aahar</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
         data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
         aria-label="Toggle navigation">
@@ -195,16 +194,13 @@ h1 {
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item"><a class="nav-link" href="#product">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
-                <li class="nav-item"><a class="nav-link" href="/contactDealer">Contact Dealer</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="/about">About</a></li> -->
-          <!-- <li class="nav-item"><a class="nav-link" href="/use">Zero Waste</a></li> -->
+          <li class="nav-item"><a class="nav-link" href="/contactDealer">Contact Dealer</a></li>
         </ul>
 
         <form class="d-flex me-3" role="search" action="/search" method="GET">
-  <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" aria-label="Search" />
-  <button class="btn btn-light" type="submit">Search</button>
-</form>
-
+          <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" aria-label="Search" />
+          <button class="btn btn-light" type="submit">Search</button>
+        </form>
 
         <button class="btn btn-light btn-lg rounded-circle" aria-label="Cart" title="Cart">
           <i class="bi bi-cart-fill"></i>
@@ -214,43 +210,123 @@ h1 {
   </nav>
 
   <h1>All Products</h1>
-<div class="container product-grid">
-  <% products.forEach(product => { %>
-    <div class="product-card">
-      <img src="<%= product.imageUrl %>" alt="<%= product.name %>">
-      <h5><%= product.name %></h5>
-      <div class="category-tag mb-2">
-  <span class="badge rounded-pill text-bg-success"><%= product.category %></span>
-</div>
+  <div class="container product-grid">
+    <% products.forEach(product => { %>
+      <div class="product-card">
+        <!-- <img src="<%= product.imageUrl %>" alt="<%= product.name %>"> -->
+<!-- <img src="/image/honey.webp" alt="<%= product.name %>"> -->
+        <h5><%= product.name %></h5>
+        <div class="category-tag mb-2">
+          <span class="badge rounded-pill text-bg-success"><%= product.category %></span>
+        </div>
 
-      <div class="product-details">
-        <p><%= product.description %></p>
-        <p><strong>By:</strong> <%= product.createdBy %></p>
-        <p class="price">Rs. <%= product.unitPrice %> /kg</p>
-        <p><strong>Stock:</strong> <%= product.quantityAvailable %> kg</p>
-        <p><strong>Best Before:</strong> <%= new Date(product.bestBefore).toLocaleDateString() %></p>
+        <div class="product-details">
+          <p><%= product.description %></p>
+          <p><strong>By:</strong> <%= product.createdBy %></p>
+          <p class="price">Rs. <%= product.unitPrice %> /kg</p>
+          <p><strong>Stock:</strong> <%= product.quantityAvailable %> kg</p>
+          <p><strong>Best Before:</strong> <%= new Date(product.bestBefore).toLocaleDateString() %></p>
+        </div>
+        <div class="text-center mt-3">
+          <form action="/cart/add/<%= product._id %>" method="POST" onsubmit="return false;">
+            <button 
+              type="button"
+              class="add-to-cart-btn btn btn-success" 
+              data-id="<%= product._id %>" 
+              data-name="<%= product.name %>" 
+              data-description="<%= product.description %>" 
+              data-bestbefore="<%= product.bestBefore.toISOString().slice(0,10) %>" 
+              data-unitPrice="<%= product.unitPrice %>" 
+              data-unit="<%= product.unit %>" 
+            > Add to Cart </button>
+          </form>
+        </div>
       </div>
-      <div class="text-center mt-3">
-        <form action="/cart/add/<%= product._id %>" method="POST">
-          <button type="submit" class="btn btn-success">Add to Cart</button>
-        </form>
-      </div>
-    </div>
-  <% }) %>
-</div>
-
-
-     <!-- Carousel Controls -->
-  <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
+    <% }) %>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Add to Cart Modal (Bootstrap based) -->
+  <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="addToCartForm" method="POST">
+        <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="addToCartModalLabel">Add to Cart</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" name="productId" id="modal-productId">  
+<input type="hidden" id="modal-unit" name="unit" readonly>
+        <div class="mb-3">
+          <label for="modal-productName" class="form-label">Product</label>
+          <input type="text" id="modal-productName" class="form-control"  readonly name="name">
+        </div>
+        <div class="mb-3">
+          <label for="modal-description" class="form-label">Description</label>
+          <textarea id="modal-description" class="form-control" rows="2"  readonly name="description"></textarea>
+        </div>
+        <div class="mb-3">
+          <label for="modal-bestBefore" class="form-label">Best Before</label>
+          <input type="text" id="modal-bestBefore" class="form-control"  readonly name="bestBefore">
+        </div>
+        <div class="mb-3">
+          <label for="modal-quantity" class="form-label">Quantity</label>
+          <input type="number" name="quantity" id="modal-quantity" class="form-control" required >
+        </div>
+          <div class="mb-3">
+          <label for="modal-unitPrice" class="form-label">Unit Price</label>
+          <input type="number" name="unitPrice" id="modal-unitPrice" class="form-control" required readonly>
+        </div>
+        <div class="mb-3">
+          <label for="modal-amount" class="form-label">Total Amount</label>
+          <input type="text" id="modal-amount" class="form-control"  name="amount">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-success">Confirm Add to Cart</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </form>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const modal = new bootstrap.Modal(document.getElementById('addToCartModal'));
+      document.getElementById('modal-productId').value = button.dataset.id;
+      document.getElementById('modal-unit').value = button.dataset.unit;
+      document.getElementById('modal-productName').value = button.dataset.name;
+      document.getElementById('modal-description').value = button.dataset.description;
+      document.getElementById('modal-bestBefore').value = button.dataset.bestbefore;
+   document.getElementById('modal-unitPrice').value = button.dataset.unitprice;
+      document.getElementById('addToCartForm').action = '/cartInsert';
+      modal.show();
+    });
+  });
+  document.getElementById('modal-quantity').addEventListener('input', () => {
+    let qty = parseInt(document.getElementById('modal-quantity').value);
+    if (isNaN(qty) || qty < 1) {
+      document.getElementById('modal-quantity').value = 1;
+      qty = 1;
+    }
+    updateTotal();
+  });
+
+  function updateTotal() {
+    const qty = parseInt(document.getElementById('modal-quantity').value);
+    const price = parseFloat(document.getElementById('modal-unitPrice').value);
+    const total = qty * price;
+    document.getElementById('modal-amount').value = isNaN(total) ? '' : total.toFixed(2);
+  }
+
+ 
+</script>
+<script>
+ 
+</script>
+
+
 </body>
 </html>

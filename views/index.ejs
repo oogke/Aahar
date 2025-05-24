@@ -4,136 +4,123 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Aahara</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" />
-
+ <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --light-bg: #DAD7CD;
-      --sage: #A3B18A;
-      --olive: #588157;
-      --forest: #3A5A40;
-      --moss: #344E41;
-    }
-
     body {
-      background-color: var(--light-bg);
-      font-family: 'Segoe UI', sans-serif;
+      background: #DAD7CD;
+      /* font-family: 'Segoe UI', sans-serif; */
+       font-family: 'Baloo 2', cursive, sans-serif;
     }
-
-    /* Navbar */
-    .navbar {
-      background-color: var(--forest);
+  
+    .navbar{
+      background-color: #3A5A40;
+      height: 90px;
+      font-size: 1.4rem;
     }
-
+     .navbar-brand
+     {
+      font-size: 50px;
+      font-weight: Bolder;
+      font-family: 'Baloo 2', cursive, sans-serif;
+     }
     .navbar-brand, .nav-link, .btn-light {
       color: white !important;
+     
     }
-
+    .nav-item
+    {
+      margin-left: 20px;
+    }
     .btn-light {
-      background-color: var(--sage);
+      background-color: #A3B18A;
       border: none;
-      transition: background-color 0.3s ease;
     }
-
     .btn-light:hover {
-      background-color: var(--olive);
+      background-color: #588157;
     }
-
-    /* Hero Section */
-    .hero {
-      position: relative;
-      background: url('/image/hero.jpg') no-repeat center center/cover;
-      height: 90vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--olive);
-      text-align: center;
-    }
+   .hero {
+  background: url('/image/aahar.jpg') center/cover no-repeat;
+  height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  color: #588157;
+  text-align: center;
+}
 
     .hero::before {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      background-color: rgba(0, 0, 0, 0.4); /* dark overlay */
+      inset: 0;
+      background: rgba(0,0,0,0.4);
       z-index: 0;
     }
-
-    .hero-content {
+    /* .hero-content {
       position: relative;
-      z-index: 1;
-      max-width: 600px;
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255,255,255,0.8);
       padding: 2rem 3rem;
       border-radius: 1rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
+      z-index: 1;
+      max-width: 600px;
+     
+    } */
+
+    .hero-content {
+  position: relative;
+  background: rgba(255, 255, 255, 0.2); 
+  padding: 2rem 3rem;
+  border-radius: 1rem;
+  z-index: 1;
+  max-width: 600px;
+  backdrop-filter: blur(0.7px);      
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3); 
+}
 
     .hero-content h1 {
       font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      color: var(--olive);
+      /* color: #588157; */
+      color: white;
     }
-
     .hero-content p {
       font-size: 1.3rem;
-      color: var(--moss);
+      /* color: #344E41; */
+      color: white;
     }
-
-    /* Products Section */
     .products-section {
-      padding: 4rem 2rem;
       max-width: 1200px;
       margin: auto;
+      padding: 4rem 2rem;
     }
-
     .product-card {
-      border-radius: 1rem;
       background: white;
+      border-radius: 1rem;
       box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      padding: 1.5rem;
+      padding: 1rem;
       margin-bottom: 2rem;
       transition: transform 0.3s ease;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-start;
     }
-
     .product-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
-
     .product-card img {
-      max-width: 100%;
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
       border-radius: 1rem;
       margin-bottom: 1rem;
-      object-fit: cover;
-      height: 180px;
-    }
-
-    .product-card h5 {
-      color: var(--olive);
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
-
-    .product-details p {
-      color: var(--moss);
-      margin-bottom: 0.4rem;
-      font-size: 0.9rem;
     }
     .category-tag .badge {
-  font-size: 0.75rem;
-  padding: 0.5em 0.75em;
-  border-radius: 50rem; /* pill-shaped */
-  background-color: #28a745; /* or customize based on category */
-  color: #fff;
-}
-
+      font-size: 0.75rem;
+      background-color: #28a745;
+      color: white;
+      border-radius: 50rem;
+      padding: 0.4em 0.75em;
+    }
   </style>
 </head>
 <body>
@@ -141,10 +128,9 @@
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="/index">Aahar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <a class="navbar-brand" href="/index">आहार</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -152,89 +138,138 @@
           <li class="nav-item"><a class="nav-link" href="/product">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="/contactDealer">Contact Dealer</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="/cart">Cart</a></li> -->
-          <!-- <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="/use">Zero Waste</a></li> -->
         </ul>
-
         <form class="d-flex me-3" role="search" action="/search" method="GET">
-  <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" aria-label="Search" />
-  <button class="btn btn-light" type="submit">Search</button>
-</form>
-
-
+          <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" />
+          <button class="btn btn-light" type="submit">Search</button>
+        </form>
         <button class="btn btn-light btn-lg rounded-circle" aria-label="Cart" title="Cart">
-          <i class="bi bi-cart-fill"></i>
+          <a href="/cart"><i class="bi bi-cart-fill"></i></a>
         </button>
       </div>
     </div>
   </nav>
-  </header>
-  
-  <section class="mainBody">
-<!-- <button class="btn" onclick="openModal()">Add to cart</button> -->
 
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Welcome to Aahar</h1>
-      <p>Bringing Farmers Closer to Your Table</p>
+      <h1>आहार</h1>
+      <!-- <p>Bringing Farmers Closer to Your Table</p> -->
+      <p>उत्पादक र उपभोक्तालाई जोड्ने स्वच्छ पुल।</p>
     </div>
   </section>
 
-  
-<section class="products-section container" id="product">
-  <h2 class="mb-4 text-center" style="color: var(--olive)">Featured Products</h2>
+  <!-- Products Section -->
+  <section class="products-section" id="product">
+    <h2 class="text-center mb-4" style="color:#588157;">Featured Products</h2>
 
-  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
-    <div class="carousel-inner">
+    <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
+      <div class="carousel-inner">
 
-      <% for (let i = 0; i < productList.length; i += 3) { %>
-        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-          <div class="row">
-            <% for (let j = i; j < i + 3 && j < productList.length; j++) { %>
-              <div class="col-md-4">
-                <div class="product-card p-3 shadow-sm rounded">
-                  <img src="<%= productList[j].image %>" alt="<%= productList[j].name %>" class="img-fluid mb-2" />
-                  <h5><%= productList[j].name %></h5>
-                  
-
-<!-- Category Tag -->
-<div class="category-tag mb-2">
-  <span class="badge rounded-pill text-bg-success"><%= productList[j].category %></span>
-</div>
-                  <div class="product-details">
-                    <p><%= productList[j].description %></p>
+        <% for(let i = 0; i < productList.length; i += 3) { %>
+          <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+            <div class="row">
+              <% for(let j = i; j < i + 3 && j < productList.length; j++) { %>
+                <div class="col-md-4">
+                  <div class="product-card shadow-sm">
+                    <img src="<%= productList[j].image %>" alt="<%= productList[j].name %>" />
+                    <h5 style="color:#588157;"><%= productList[j].name %></h5>
+                    <div class="category-tag mb-2">
+                      <span class="badge"><%= productList[j].category %></span>
+                    </div>
+                    <p style="color:#344E41;"><%= productList[j].description %></p>
                     <p><strong>Best Before:</strong> <%= productList[j].bestBefore %></p>
                     <p><strong>Farmer:</strong> <%= productList[j].createdBy %></p>
                     <p><strong>Price:</strong> Rs. <%= productList[j].pricePerKg %></p>
-                  </div>
-                  <!-- Add to Cart Button -->
-                  <div class="text-center mt-3">
-                    <form action="/cart/add/<%= productList[j]._id %>" method="POST">
-                      <button type="submit" class="btn btn-success">Add to Cart</button>
-                    </form>
+
+                    <div class="text-center mt-3">
+                      <form action="/cart/add/<%= productList[j]._id %>" method="POST">
+                        <button type="button" class="btn btn-success add-to-cart-btn" 
+                          data-id="<%= productList[j]._id %>"
+                          data-name="<%= productList[j].name %>"
+                          data-description="<%= productList[j].description %>"
+                          data-unit="kg"
+                          data-unitprice="<%= productList[j].pricePerKg %>"
+                          data-bestbefore="<%= new Date(productList[j].bestBefore).toISOString().split('T')[0] %>">
+                          Add to Cart
+                        </button>
+                      </form>
+                    </div>
                   </div>
                 </div>
-              </div>
-            <% } %>
+              <% } %>
+            </div>
+          </div>
+        <% } %>
+
+      </div>
+
+      <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Add to Cart Modal (simplified form) -->
+  <div class="modal fade" id="addToCartModal" tabindex="-1" aria-labelledby="addToCartModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <form id="addToCartForm" method="POST">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="addToCartModalLabel">Add to Cart</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <input type="hidden" name="productId" id="modalProductId" />
+            <div class="mb-3">
+              <label for="modalName" class="form-label">Product Name</label>
+              <input type="text" class="form-control" id="modalName" name="name" readonly />
+            </div>
+            <div class="mb-3">
+              <label for="modalQuantity" class="form-label">Quantity</label>
+              <input type="number" class="form-control" id="modalQuantity" name="quantity" min="1" value="1" required />
+            </div>
+            <div class="mb-3">
+              <label for="modalUnitPrice" class="form-label">Unit Price (Rs.)</label>
+              <input type="text" class="form-control" id="modalUnitPrice" name="unitPrice" readonly />
+            </div>
+            <div class="mb-3">
+              <label for="modalBestBefore" class="form-label">Best Before</label>
+              <input type="date" class="form-control" id="modalBestBefore" name="bestBefore" readonly />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Add to Cart</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
           </div>
         </div>
-      <% } %>
-
+      </form>
     </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
   </div>
-</section>
-
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    document.querySelectorAll('.add-to-cart-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        const modal = new bootstrap.Modal(document.getElementById('addToCartModal'));
+
+        // Populate modal fields from button dataset
+        document.getElementById('modalProductId').value = button.dataset.id;
+        document.getElementById('modalName').value = button.dataset.name;
+        document.getElementById('modalUnitPrice').value = button.dataset.unitprice;
+        document.getElementById('modalBestBefore').value = button.dataset.bestbefore;
+        document.getElementById('modalQuantity').value = 1;
+
+        modal.show();
+
+        // Set form action dynamically
+        document.getElementById('addToCartForm').action = `/cart/add/${button.dataset.id}`;
+      });
+    });
+  </script>
 </body>
 </html>

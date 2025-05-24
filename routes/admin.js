@@ -22,9 +22,7 @@ res.status(500).json({message: err.message})
   
 });
 
-router.get('/contactDetail', function(req, res, next) {
-  res.render('admin/contactDetails.ejs');
-});
+
 
 router.get('/addProduct', function(req, res, next) {
   res.render('admin/addProduct.ejs');
@@ -39,9 +37,42 @@ router.get('/users', async (req, res) => {
 router.get('/contactDetails',async (req,res)=>
 {
   const contacts = await Contact.find();
-  res.send(contacts);
+  // res.send(contacts);
  res.render("admin/contactDetails",{contacts});
 
 })
+router.post('/productEdit/:id', async (req, res) => {
+  try {
+    const product = await Product.findById(req.params.id);
+
+    if (!product) {
+      return res.status(404).json({ message: "Product not found" });
+    }
+    // Send product data as JSON so you can populate the modal
+    res.status(200).json({
+      message: "successfully sent",
+      data: product
+    });
+
+  } catch (error) {
+    console.error("Edit fetch error:", error);
+    res.status(500).json({ message: "Server error" });
+  }
+});
+
+
+// ✅ DELETE product (used in delete modal)
+router.post('/productDelete/:id', async (req, res) => {
+  try {
+    const id = req.params.id;
+    await Product.findByIdAndDelete(id);
+
+    res.status(200).json({ message: "successfully deleted" });
+  } catch (error) {
+    console.error("Delete error:", error);
+    res.status(500).json({ message: "Delete failed" });
+  }
+});
+
 
 module.exports = router;

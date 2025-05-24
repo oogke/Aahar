@@ -14,6 +14,10 @@ const ProductSchema = mongoose.Schema(
       type: Number,
       required: [true, "Please enter the price per kg"],
     },
+      unit: {
+      type: String,
+      required: [true, "Please enter the price per kg"],
+    },
     quantityAvailable: {
       type: Number,
       required: [true, "Please specify the available quantity (in kgs)"],

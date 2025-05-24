@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Product = require('../models/productschema');
+const Cart=require('../models/cart.model');
 
 router.get('/', async (req, res) => {
  
@@ -23,11 +24,22 @@ router.get('/contactDealer', async (req, res) => {
  
 });
 
-router.get('/cart', async (req, res) => {
+router.get('/cart', async (req, res,next) => {
 
     res.render('cart'); 
  
 });
 
+router.post('/cartInsert', async (req, res,next) => {
+
+    try {
+    const cartProducts= await Cart.create(req.body);
+     const products = await Product.find({});
+    res.render('product', {products: products})
+  } catch (err) {
+    res.status(500).send('Error fetching products');
+  }
+// const cartProducts= await Cart.create(req.body);
+});
 
 module.exports = router;

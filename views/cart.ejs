@@ -149,11 +149,10 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/product">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="/contactDealer">Contact Dealer</a></li>
-          <!-- <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="/use">Zero Waste</a></li> -->
         </ul>
 
         <form class="d-flex me-3" role="search" action="/search" method="GET">
@@ -168,70 +167,8 @@
       </div>
     </div>
   </nav>
-  </header>
-  
-  <section class="mainBody">
-<!-- <button class="btn" onclick="openModal()">Add to cart</button> -->
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Welcome to Aahar</h1>
-      <p>Bringing Farmers Closer to Your Table</p>
-    </div>
-  </section>
 
   
-<section class="products-section container" id="product">
-  <h2 class="mb-4 text-center" style="color: var(--olive)">Featured Products</h2>
-
-  <div id="productCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="6000">
-    <div class="carousel-inner">
-
-      <% for (let i = 0; i < productList.length; i += 3) { %>
-        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
-          <div class="row">
-            <% for (let j = i; j < i + 3 && j < productList.length; j++) { %>
-              <div class="col-md-4">
-                <div class="product-card p-3 shadow-sm rounded">
-                  <img src="<%= productList[j].image %>" alt="<%= productList[j].name %>" class="img-fluid mb-2" />
-                  <h5><%= productList[j].name %></h5>
-                  
-
-<!-- Category Tag -->
-<div class="category-tag mb-2">
-  <span class="badge rounded-pill text-bg-success"><%= productList[j].category %></span>
-</div>
-                  <div class="product-details">
-                    <p><%= productList[j].description %></p>
-                    <p><strong>Best Before:</strong> <%= productList[j].bestBefore %></p>
-                    <p><strong>Farmer:</strong> <%= productList[j].createdBy %></p>
-                    <p><strong>Price:</strong> Rs. <%= productList[j].pricePerKg %></p>
-                  </div>
-                  <!-- Add to Cart Button -->
-                  <div class="text-center mt-3">
-                    <form action="/cart/add/<%= productList[j]._id %>" method="POST">
-                      <button type="submit" class="btn btn-success">Buy</button>
-                    </form>
-                  </div>
-                </div>
-              </div>
-            <% } %>
-          </div>
-        </div>
-      <% } %>
-
-    </div>
-
-    <!-- Carousel Controls -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#productCarousel" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#productCarousel" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-    </button>
-  </div>
-</section>
 
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>

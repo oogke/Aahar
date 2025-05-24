@@ -26,7 +26,28 @@
     font-family: 'Baloo 2', cursive;
   }
 
-    nav {
+ .navbar{
+      background-color: #3A5A40;
+      height: 90px;
+      font-size: 1.4rem;
+    }
+     .navbar-brand
+     {
+      font-size: 50px;
+      font-weight: Bolder;
+      font-family: 'Baloo 2', cursive, sans-serif;
+     }
+    .navbar-brand, .nav-link, .btn-light {
+      color: white !important;
+     
+    }
+    .nav-item
+    {
+      margin-left: 20px;
+    }
+
+
+    /* nav {
     background-color: #588157;
     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
     padding: 10px 30px;
@@ -39,7 +60,7 @@
       font-size: 1.4rem;
       font-weight: 500;
         margin-left: 20px;
-    }
+    } */
 
     h1 {
           margin-top: 40px;
@@ -136,18 +157,24 @@
 <body>
 
  
-  <nav class="navbar navbar-expand-lg">
-    <div class="container-fluid justify-content-end">
-      <ul class="navbar-nav">
-        <li class="nav-item"><a class="nav-link" href="/admin">Home</a></li>
-        <li class="nav-item"><a class="nav-link" href="/admin/product">Products</a></li>
-        <li class="nav-item"><a class="nav-link" href="/admin/users">Users</a></li>
-        <!-- <li class="nav-item"><a class="nav-link" href="/admin/contactDetail">Contact Details</a></li> -->
-        <li class="nav-item"><a class="nav-link" href="/admin/addProduct">Add Product</a></li>
-      </ul>
+<nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="/index">आहार</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="/admin/product">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/users">Users</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/addProduct">Add Product</a></li>
+          <li class="nav-item"><a class="nav-link" href="/admin/contactDetails">Contacters</a></li>
+        </ul>
+      
+      </div>
     </div>
   </nav>
-
   <h1>All Products</h1>
 
   <div class="product-grid">
@@ -165,10 +192,11 @@
   <strong>Best Before:</strong>
   <%= product.bestBefore ? product.bestBefore.toISOString().split('T')[0] : 'N/A' %>
 </div>
-        <div class="button-group">
-          <button class="btn btn-edit">Edit</button>
-          <button class="btn btn-remove">Remove</button>
-        </div>
+       <div class="button-group">
+  <button class="btn btn-edit" data-bs-toggle="modal" data-bs-target="#updatemodal" data-bs-postid="<%= product._id %>">Edit</button>
+  <button class="btn btn-remove" data-bs-toggle="modal" data-bs-target="#DeleteModal" data-bs-postid="<%= product._id %>">Remove</button>
+</div>
+
       </div>
     </div>
  <%})%>
@@ -177,6 +205,143 @@
    
 
   </div>
+
+
+    <!-- Delete Modal -->
+    <div class="modal fade" id="DeleteModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deleteLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+       
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      Are you sure you want to delete it?
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">close</button>
+        <button type="button" class="btn btn-primary" id="deleteBtn">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+    <!-- Delete Modal -->
+
+   
+  <!--update Modal -->
+  <div class="modal fade" id="updatemodal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+        aria-labelledby="updateLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+               <form action="/admin/save" method="POST" class="form-container">
+      <h2>Add Product</h2>
+
+      <div class="form-group">
+        <label for="productName">Product Name</label>
+        <input type="text" id="productName" name="name" required placeholder="Enter product name" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea id="description" name="description" placeholder="Product description"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="category">Category</label>
+        <input type="text" id="category" name="category" required placeholder="Enter category" />
+      </div>
+        <div class="form-group">
+        <label for="category">Product By</label>
+        <input type="text" id="createdBy" name="createdBy" required placeholder="Enter Producer" />
+      </div>
+
+      <div class="row-group">
+        <div class="form-group">
+          <label for="quantityAvailable">Quantity</label>
+          <input type="number" id="quantityAvailable" name="quantityAvailable" required placeholder="Enter quantity" min="0" />
+        </div>
+
+        <div class="form-group">
+          <label for="unit">Unit</label>
+          <input type="text" id="unit" name="unit" required placeholder="e.g., pcs, kg" />
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Unit price</label>
+        <input type="number" id="price" name="unitPrice" required placeholder="Enter price" min="0" step="0.01" />
+      </div>
+
+      <div class="form-group">
+        <label for="bestBefore">Best Before</label>
+        <input type="date" id="bestBefore" name="bestBefore" required />
+      </div>
+
+      <button type="submit" onclicl>Add Product</button>
+    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      <!--update Modal -->
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+const deleteModal = document.getElementById('DeleteModal'); 
+if (deleteModal) {
+  deleteModal.addEventListener('show.bs.modal', function (event) {
+    var button = event.relatedTarget;
+    var postid = button.getAttribute('data-bs-postid');
+    var deleteBtn = document.getElementById("deleteBtn");
+
+    deleteBtn.onclick = function(event) {
+      event.preventDefault();
+      fetch(`/admin/productDelete/${postid}`, {
+        method: "POST",
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message == "successfully deleted") {
+          window.location.href = "/admin/product";
+        }
+      });
+    };
+  });
+}
+
+const updateModal = document.getElementById('updatemodal'); 
+if (updateModal) {
+  updateModal.addEventListener('show.bs.modal', function (event) {
+    const button = event.relatedTarget;
+    const postid = button.getAttribute('data-bs-postid');
+
+    
+    console.log("Editing product:", postid);
+
+     fetch(`/admin/productEdit/${postid}`, {
+        method: "POST",
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.message == "successfully sent") {
+          window.location.href = "/admin/product";
+        }
+      });
+    // TODO: Replace "hello" with actual product form populated using fetch
+    const modalBody = updateModal.querySelector('.modal-body');
+   
+  });
+}
+</script>
+
 
 </body>
 </html>
