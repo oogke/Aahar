@@ -43,7 +43,8 @@
     /* Hero Section */
     .hero {
       position: relative;
-      background: url('/image/hero.jpg') no-repeat center center/cover;
+background: url('C:\Users\admin\OneDrive\Desktop\aahara\Aahar\views\img1.jpg') no-repeat center center/cover;
+ 
       height: 90vh;
       display: flex;
       align-items: center;
@@ -152,7 +153,7 @@
           <li class="nav-item"><a class="nav-link" href="/product">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="/use">Zero Waste</a></li>
+          <li class="nav-item"><a class="nav-link" href="/zero">Zero Waste</a></li>
         </ul>
 
         <form class="d-flex me-3" role="search" action="/search" method="GET">
@@ -170,7 +171,6 @@
   </header>
   
   <section class="mainBody">
-<button class="btn" onclick="openModal()">Add to cart</button>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -205,7 +205,7 @@
                     <p><%= productList[j].description %></p>
                     <p><strong>Best Before:</strong> <%= productList[j].bestBefore %></p>
                     <p><strong>Farmer:</strong> <%= productList[j].createdBy %></p>
-                    <p><strong>Price:</strong> Rs. <%= productList[j].pricePerKg %></p>
+                    <p><strong>Price:</strong> Rs. <%= productList[j].unitPrice %></p>
                   </div>
                   <!-- Add to Cart Button -->
                   <div class="text-center mt-3">

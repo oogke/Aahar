@@ -30,7 +30,7 @@ router.post('/', async (req, res) => {
   const product = new Product({
     name: req.body.name,
     description: req.body.description,
-    pricePerKg: req.body.pricePerKg,
+    pricePerKg: req.body.unitKg,
     quantityAvailable: req.body.quantityAvailable,
     bestBefore: req.body.bestBefore,
     createdBy: req.body.createdBy,

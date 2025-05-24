@@ -196,7 +196,7 @@ h1 {
           <li class="nav-item"><a class="nav-link" href="#product">Products</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="/use">Zero Waste</a></li>
+          <li class="nav-item"><a class="nav-link" href="/zero">Zero Waste</a></li>
         </ul>
 
         <form class="d-flex me-3" role="search" action="/search" method="GET">
@@ -225,7 +225,7 @@ h1 {
       <div class="product-details">
         <p><%= product.description %></p>
         <p><strong>By:</strong> <%= product.createdBy %></p>
-        <p class="price">Rs. <%= product.pricePerKg %> /kg</p>
+        <p class="price">Rs. <%= product.unitPrice %> /kg</p>
         <p><strong>Stock:</strong> <%= product.quantityAvailable %> kg</p>
         <p><strong>Best Before:</strong> <%= new Date(product.bestBefore).toLocaleDateString() %></p>
       </div>

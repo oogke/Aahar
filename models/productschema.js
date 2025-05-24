@@ -10,7 +10,7 @@ const ProductSchema = mongoose.Schema(
       type: String,
       required: [true, "Please enter the product description"], 
     },
-    pricePerKg: {
+    unitPrice: {
       type: Number,
       required: [true, "Please enter the price per kg"],
     },
@@ -33,7 +33,6 @@ const ProductSchema = mongoose.Schema(
     },
     category: {
       type: String,
-      enum: ['Dairy', 'Fruits', 'Vegetables', 'Grains', 'Meat', 'Other'],
       required: [true, "Please specify the category"],
     }
   },

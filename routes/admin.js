@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Product= require('../models/product.model');
+var Product= require('../models/productschema');
 var User= require('../models/user.model');
 var Contact= require('../models/contactDetails.model');
 
