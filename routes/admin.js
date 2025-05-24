@@ -41,24 +41,24 @@ router.get('/contactDetails',async (req,res)=>
  res.render("admin/contactDetails",{contacts});
 
 })
-router.post('/productEdit/:id', async (req, res) => {
-  try {
-    const product = await Product.findById(req.params.id);
+// router.post('/productEdit/:id', async (req, res) => {
+//   try {
+//     const product = await Product.findById(req.params.id);
 
-    if (!product) {
-      return res.status(404).json({ message: "Product not found" });
-    }
-    // Send product data as JSON so you can populate the modal
-    res.status(200).json({
-      message: "successfully sent",
-      data: product
-    });
+//     if (!product) {
+//       return res.status(404).json({ message: "Product not found" });
+//     }
+//     // Send product data as JSON so you can populate the modal
+//     res.status(200).json({
+//       message: "successfully sent",
+//       data: product
+//     });
 
-  } catch (error) {
-    console.error("Edit fetch error:", error);
-    res.status(500).json({ message: "Server error" });
-  }
-});
+//   } catch (error) {
+//     console.error("Edit fetch error:", error);
+//     res.status(500).json({ message: "Server error" });
+//   }
+// });
 
 
 // ✅ DELETE product (used in delete modal)
