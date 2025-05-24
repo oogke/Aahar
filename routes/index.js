@@ -3,9 +3,20 @@ const router = express.Router();
 const Product = require('../models/productschema');
 const Cart=require('../models/cart.model');
 var Contact= require('../models/contactDetails.model');
+
 router.get('/', async (req, res) => {
  
     res.render('login'); 
+ 
+});
+router.get('/zeroWaste', async (req, res) => {
+  const cutoffDate = new Date('2025-05-05');
+    // Find products with bestBefore date less than cutoffDate
+    const products = await Product.find({
+      bestBefore: { $lt: cutoffDate }
+    });
+    res.render('zero', { products: products });
+  
  
 });
 
@@ -25,8 +36,8 @@ router.get('/contactDealer', async (req, res) => {
 });
 
 router.get('/cart', async (req, res,next) => {
-
-    res.render('cart'); 
+const cart= await Cart.find();
+    res.render('cart' ,{cart}); 
  
 });
 
@@ -52,5 +63,6 @@ router.post('/addContact', async (req, res,next) => {
     res.status(500).send('Error fetching products');
   }
 });
+
 
 module.exports = router;

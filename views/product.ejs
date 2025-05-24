@@ -21,14 +21,34 @@
       font-family: 'Segoe UI', sans-serif;
     }
 
+      .navbar{
+      background-color: #3A5A40;
+      height: 90px;
+      font-size: 1.4rem;
+    }
+     .navbar-brand
+     {
+      font-size: 50px;
+      font-weight: Bolder;
+      font-family: 'Baloo 2', cursive, sans-serif;
+     }
+    .navbar-brand, .nav-link, .btn-light {
+      color: white !important;
+     
+    }
+    .nav-item
+    {
+      margin-left: 20px;
+    }
+
     /* Navbar */
-    .navbar {
+    /* .navbar {
       background-color: var(--forest);
     }
 
     .navbar-brand, .nav-link, .btn-light {
       color: white !important;
-    }
+    } */
 
     .btn-light {
       background-color: var(--sage);
@@ -182,28 +202,26 @@ h1 {
 
 
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+ <nav class="navbar navbar-expand-lg">
     <div class="container">
-<a class="navbar-brand" href="/">Aahar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <a class="navbar-brand" href="/index">आहार</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#product">Products</a></li>
+          <li class="nav-item"><a class="nav-link" href="/index">Home</a></li>
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="/contactDealer">Contact Dealer</a></li>
+          <li class="nav-item"><a class="nav-link" href="/zeroWaste">Zero Waste</a></li>
         </ul>
-
         <form class="d-flex me-3" role="search" action="/search" method="GET">
-          <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" aria-label="Search" />
+          <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" />
           <button class="btn btn-light" type="submit">Search</button>
         </form>
-
         <button class="btn btn-light btn-lg rounded-circle" aria-label="Cart" title="Cart">
-          <i class="bi bi-cart-fill"></i>
+          <a href="/cart"><i class="bi bi-cart-fill"></i></a>
         </button>
       </div>
     </div>

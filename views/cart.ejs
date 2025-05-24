@@ -19,17 +19,37 @@
     body {
       background-color: var(--light-bg);
       font-family: 'Segoe UI', sans-serif;
+      flex-direction: column;
     }
 
     /* Navbar */
-    .navbar {
+    /* .navbar {
       background-color: var(--forest);
     }
 
     .navbar-brand, .nav-link, .btn-light {
       color: white !important;
-    }
+    } */
 
+      .navbar{
+      background-color: #3A5A40;
+      height: 90px;
+      font-size: 1.4rem;
+    }
+     .navbar-brand
+     {
+      font-size: 50px;
+      font-weight: Bolder;
+      font-family: 'Baloo 2', cursive, sans-serif;
+     }
+    .navbar-brand, .nav-link, .btn-light {
+      color: white !important;
+     
+    }
+    .nav-item
+    {
+      margin-left: 20px;
+    }
     .btn-light {
       background-color: var(--sage);
       border: none;
@@ -133,18 +153,36 @@
   background-color: #28a745; /* or customize based on category */
   color: #fff;
 }
+        .back-btn {
+      display: flex;
+      justify-content: flex-start;
+      margin-bottom: 20px;
+    }
+    #goBackBtn {
+      background-color: var(--sage);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    #goBackBtn:hover {
+      background-color: var(--olive);
+    }
 
   </style>
 </head>
 <body>
 
+  
   <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
+ <nav class="navbar navbar-expand-lg">
     <div class="container">
-      <a class="navbar-brand" href="/index">Aahar</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-        data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
+      <a class="navbar-brand" href="/index">आहार</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
@@ -154,19 +192,41 @@
           <li class="nav-item"><a class="nav-link" href="/admin">Admin</a></li>
           <li class="nav-item"><a class="nav-link" href="/contactDealer">Contact Dealer</a></li>
         </ul>
-
         <form class="d-flex me-3" role="search" action="/search" method="GET">
-  <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" aria-label="Search" />
-  <button class="btn btn-light" type="submit">Search</button>
-</form>
-
-
-        <button class="btn btn-light btn-lg rounded-circle" aria-label="Cart" title="Cart">
-          <i class="bi bi-cart-fill"></i>
-        </button>
+          <input class="form-control me-2" type="search" name="keyword" placeholder="Search products" />
+          <button class="btn btn-light" type="submit">Search</button>
+        </form>
+      
       </div>
     </div>
   </nav>
+<section class="products-section">
+      <div class="container">
+        <h2 class="mb-5 text-center text-success">🛒 Your Cart Items</h2>
+        <div class="row">
+          <% if (cart.length === 0) { %>
+            <p class="text-center">Your cart is empty.</p>
+          <% } else { %>
+            <% cart.forEach(item => { %>
+              <div class="col-md-4 mb-5">
+                <div class="product-card">
+            
+                  <div class="product-details">
+                    <h5><%= item.name %></h5>
+                    <p><strong>Description:</strong> <%= item.description %></p>
+                    <p><strong>Unit:</strong> <%= item.unit %></p>
+                    <p><strong>Unit Price:</strong> ₹<%= item.unitPrice %></p>
+                    <p><strong>Quantity:</strong> <%= item.quantity %></p>
+                    <p><strong>Total Amount:</strong> ₹<%= item.amount %></p>
+                    <p><strong>Best Before:</strong> <%= new Date(item.bestBefore).toLocaleDateString() %></p>
+                  </div>
+                </div>
+              </div>
+            <% }); %>
+          <% } %>
+        </div>
+      </div>
+    </section>
 
   
 
